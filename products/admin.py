@@ -1,8 +1,6 @@
 from django.contrib import admin
 from .models import *
-
-# test124
-
+#test124
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 0
