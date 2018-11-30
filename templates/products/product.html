@@ -18,7 +18,10 @@
                 </h1>
                 <div class="">
                     <p>
-                        Ціна: {{ product.price }} ₴
+                        Ціна: {{ product.price }}  $
+                    </p>
+                    <p>
+                      Зі знижкою: {{product.price_discount}} $
                     </p>
                 </div>
                 <div>
@@ -46,6 +49,25 @@
                             <h3>Як ми робимо доставку</h3>
                         </div>
                       </div>
+                      <div>
+                              <form id="form_buying_product" class="form-inline">
+                                  <div class="form-group">
+                                       <input type="number" class="form-control" name="number" id="number">
+                                  </div>
+
+
+                                      <div class="form-group">
+                                          <button type="submit" id="submit_btn" class="btn btn-success btn-buy"
+                                            data-product_id = "{{product.id}}"
+                                            data-name = "{{product.name}}"
+                                            data-price = '{{product.price}}'
+                                          >
+                                              Замовити тур
+                                          </button>
+                                      </div>
+
+                              </form>
+                          </div>
                 </div>
             </div>
         </div>

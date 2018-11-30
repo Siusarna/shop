@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .forms import SubscriberForm
 from products.models import *
+import datetime
+
 
 def landing(request):
     name = 'Siusarna'
@@ -17,7 +19,9 @@ def landing(request):
 
 def home(request):
     products_images = ProductImage.objects.filter(is_active=True, is_main=True, product__is_active=True)
-    products_images_phones = products_images.filter(product__type__id=2)
-    products_images_laptops = products_images.filter(product__type__id=1)
+    products_images_new = products_images.filter(product__type__id=3).order_by("-product")[:4]
+    products_images_hot = products_images.filter(product__type__id=4)
+    products_images_sightseening = products_images.filter(product__type__id=5)
+    products_images_popular = products_images.filter(product__type__id=6)
     return render(request, 'landing/home.html', locals())
 # Create your views here.

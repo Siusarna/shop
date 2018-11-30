@@ -15,6 +15,7 @@ class Product(models.Model):
     name = models.CharField(max_length=64, blank=True,null=True,default=None)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     discount = models.IntegerField(default=0)
+    price_discount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     type = models.ForeignKey(ProductCategory,blank=True,null=True,default=None)
     short_description = models.TextField(blank=True, null=True, default = None)
     description = models.TextField(blank=True, null=True, default = None)
@@ -27,6 +28,12 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товари'
+
+    def save(self, *args, **kwargs):
+        self.price_discount=self.price-self.price*self.discount/100
+
+        super(Product, self).save(*args, **kwargs)
+
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, blank=True, null=True,default=None)
