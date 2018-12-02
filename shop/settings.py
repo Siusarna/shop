@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'landing',
     'orders',
     'products',
+    'feedback',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,3 +129,9 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media",'products_images')
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'charodeyrap@gmail.com'
+EMAIL_HOST_PASSWORD = 'xyb85ruk'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
