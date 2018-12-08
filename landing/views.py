@@ -23,5 +23,6 @@ def home(request):
     products_images_hot = products_images.filter(product__type__id=4)
     products_images_sightseening = products_images.filter(product__type__id=5)
     products_images_popular = products_images.filter(product__type__id=6)
+    products_images_all = products_images
     return render(request, 'landing/home.html', locals())
 # Create your views here.

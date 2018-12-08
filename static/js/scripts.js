@@ -1,10 +1,12 @@
-$(document).ready(function(){
-     PopUpHide();
-  //Функция отображения PopUp
-  function PopUpShow(){
-      $("#popup1").show();
-  }
-  //Функция скрытия PopUp
-  function PopUpHide(){
-      $("#popup1").hide();
-  }
+ $(function() {
+$(window).scroll(function() {
+ if($(this).scrollTop() != 0) {
+ $('#toTop').fadeIn();
+ } else {
+ $('#toTop').fadeOut();
+ }
+ });
+ $('#toTop').click(function() {
+ $('body,html').animate({scrollTop:0},800);
+ });
+ });

@@ -1,8 +1,12 @@
- {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 
 {% block content %}
+  <div class='back_in_home'>
+    <a href="{% url 'home' %}">
+      <img height="50px;" src='/static/img/Ic.png'>
+    </a>
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -46,18 +50,14 @@
                             {{ product.description }}
                         </div>
                         <div role="tabpanel" class="tab-pane" id="delivery">
-                            <h3>Як ми робимо доставку</h3>
+                            Доставка всіх білетів та документів здійснюється електронно. Після оформлення замовлення наш
+                            оператор звяжеться з вами для уточнення інформації.Він відправить вам рахунок для оплати поїздки.
+                            Відправка документів та білетів здійснюється тільки після повної оплати туру
                         </div>
                       </div>
                       <div>
-                              <form id="form_buying_product" class="form-inline">
-                                  <div class="form-group">
-                                       <input type="number" class="form-control" name="number" id="number">
-                                  </div>
-
-
-                                      <div class="form-group">
-                                          <button type="submit" id="submit_btn" class="btn btn-success btn-buy"
+                                      <div >
+                                          <button type="submit" id="submit_btn" class="btnn btn-success btn-buy"
                                             data-product_id = "{{product.id}}"
                                             data-name = "{{product.name}}"
                                             data-price = '{{product.price}}'
@@ -65,10 +65,10 @@
                                             <a class="text" href="{%url 'feedback' %}">Замовити тур</a>
                                           </button>
                                       </div>
-                              </form>
                           </div>
                 </div>
             </div>
         </div>
     </div>
+    <DIV ID = "toTop" > ^ Вверх </ DIV >
 {% endblock %}

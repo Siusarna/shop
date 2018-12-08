@@ -12,17 +12,16 @@ def feedback(request):
 		form = ContactForm(request.POST)
 		if form.is_valid():
 			subject = form.cleaned_data['name']
-			second_name = form.cleaned_data['second_name']
 			email = form.cleaned_data['email']
 			message = form.cleaned_data['message']
 			recipients = ['charodeyrap@gmail.com']
 			try:
-				send_mail(subject, message, email, recipients)
+				send_mail(subject, message, email, recipients,)
 			except BadHeaderError: #Защита от уязвимости
 				return HttpResponse('Invalid header found')
 			post = form.save()
 			post.save()
-			return render(request, 'thank.html')
+			return redirect( '/')
 	else:
 			form = ContactForm()
 	return render(request, 'feedback.html', {'form': form })
